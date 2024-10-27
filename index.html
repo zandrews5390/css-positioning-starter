@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>CSS Positioning</title>
+        <meta name="author" content="Jessica Barnett">
+        <meta name="description" content="Let's learn how to use CSS positioning to adjust the way some of our page elements display.">
+
+        <!-- Favicon -->
+        <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+        <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+
+        <!-- Fonts by Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Catamaran:wght@100..900&family=Scada:wght@400;700&display=swap" rel="stylesheet">
+
+        <!-- Stylesheets -->
+        <link href="styles.css" rel="stylesheet">
+    </head>
+
+    <body id="top">
+        <a href="#main" id="skip">Skip to Main Content</a>
+        <header>
+            <h1>CSS Positioning</h1>
+            <nav aria-label="Main Navigation">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Profile</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+            <section id="notifications">
+                <button id="messages" aria-label="View Direct Messages - you have one unread message">
+                    <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" fill="none" width="24" height="24" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke="currentColor">
+                        <path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z"></path>
+                        <path d="M3 7l9 6l9 -6"></path>
+                    </svg>
+                    <span class="dot"></span>
+                </button>
+                <button id="profile" aria-label="View Your Profile - you have no suggested updates">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" width="24" height="24" stroke-width="2">
+                        <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"></path>
+                        <path d="M12 10m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"></path>
+                        <path d="M6.168 18.849a4 4 0 0 1 3.832 -2.849h4a4 4 0 0 1 3.834 2.855"></path>
+                    </svg>
+                    <span class="dot none"></span>
+                </button>
+                <button id="chat" aria-label="Start a Chat - you have zero new chat requests">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" width="24" height="24" stroke-width="2">
+                        <path d="M3 20l1.3 -3.9c-2.324 -3.437 -1.426 -7.872 2.1 -10.374c3.526 -2.501 8.59 -2.296 11.845 .48c3.255 2.777 3.695 7.266 1.029 10.501c-2.666 3.235 -7.615 4.215 -11.574 2.293l-4.7 1"></path>
+                    </svg>
+                    <span class="dot none"></span>
+                </button>
+            </section>
+        </header>
+
+        <main id="main">
+            <section id="friends">
+                <h2>Friend List</h2>
+                <!-- The Fake User Info is from the RandomUser API: https://randomuser.me/ -->
+                <section>
+                    <h3>Antonio Gray</h3>
+                    <img src="https://randomuser.me/api/portraits/men/81.jpg" alt="" height="128" width="128">
+                    <button aria-label="Add to Favorites" class="star">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" width="24" height="24" stroke-width="2">
+                            <path d="M17.286 21.09q -1.69 .001 -5.288 -2.615q -3.596 2.617 -5.288 2.616q -2.726 0 -.495 -6.8q -9.389 -6.775 2.135 -6.775h.076q 1.785 -5.516 3.574 -5.516q 1.785 0 3.574 5.516h.076q 11.525 0 2.133 6.774q 2.23 6.802 -.497 6.8"></path>
+                        </svg>
+                    </button>
+                    <p>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" width="24" height="24" stroke-width="2">
+                            <path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path>
+                            <path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z"></path>
+                        </svg>
+                        Oklahoma, USA
+                    </p>
+                    <div>
+                        <button aria-label="Start a Chat with This Friend">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" width="24" height="24" stroke-width="2">
+                                <path d="M3 20l1.3 -3.9c-2.324 -3.437 -1.426 -7.872 2.1 -10.374c3.526 -2.501 8.59 -2.296 11.845 .48c3.255 2.777 3.695 7.266 1.029 10.501c-2.666 3.235 -7.615 4.215 -11.574 2.293l-4.7 1"></path>
+                            </svg>
+                        </button>
+                        <button aria-label="Send a Message to This Friend">
+                            <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" fill="none" width="24" height="24" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke="currentColor">
+                                <path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z"></path>
+                                <path d="M3 7l9 6l9 -6"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Emily Murphy</h3>
+                    <img src="https://randomuser.me/api/portraits/women/72.jpg" alt="" height="128" width="128">
+                    <button aria-label="Remove from Favorites" class="fav star">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"stroke-linecap="round" stroke-linejoin="round" width="24" height="24" stroke-width="2">
+                            <path d="M17.286 21.09q -1.69 .001 -5.288 -2.615q -3.596 2.617 -5.288 2.616q -2.726 0 -.495 -6.8q -9.389 -6.775 2.135 -6.775h.076q 1.785 -5.516 3.574 -5.516q 1.785 0 3.574 5.516h.076q 11.525 0 2.133 6.774q 2.23 6.802 -.497 6.8"></path>
+                        </svg>
+                    </button>
+                    <p>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" width="24" height="24" stroke-width="2">
+                            <path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path>
+                            <path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z"></path>
+                        </svg>
+                        Vermont, USA
+                    </p>
+                    <div>
+                        <button aria-label="Start a Chat with This Friend">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" width="24" height="24" stroke-width="2">
+                                <path d="M3 20l1.3 -3.9c-2.324 -3.437 -1.426 -7.872 2.1 -10.374c3.526 -2.501 8.59 -2.296 11.845 .48c3.255 2.777 3.695 7.266 1.029 10.501c-2.666 3.235 -7.615 4.215 -11.574 2.293l-4.7 1"></path>
+                            </svg>
+                        </button>
+                        <button aria-label="Send a Message to This Friend">
+                            <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" fill="none" width="24" height="24" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke="currentColor">
+                                <path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z"></path>
+                                <path d="M3 7l9 6l9 -6"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Scarlet Oliver </h3>
+                    <img src="https://randomuser.me/api/portraits/women/91.jpg" alt="" height="128" width="128">
+                    <button aria-label="Remove from Favorites" class="fav star">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"stroke-linecap="round" stroke-linejoin="round" width="24" height="24" stroke-width="2">
+                            <path d="M17.286 21.09q -1.69 .001 -5.288 -2.615q -3.596 2.617 -5.288 2.616q -2.726 0 -.495 -6.8q -9.389 -6.775 2.135 -6.775h.076q 1.785 -5.516 3.574 -5.516q 1.785 0 3.574 5.516h.076q 11.525 0 2.133 6.774q 2.23 6.802 -.497 6.8"></path>
+                        </svg>
+                    </button>
+                    <p>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" width="24" height="24" stroke-width="2">
+                            <path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path>
+                            <path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z"></path>
+                        </svg>
+                        Delaware, USA
+                    </p>
+                    <div>
+                        <button aria-label="Start a Chat with This Friend">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" width="24" height="24" stroke-width="2">
+                                <path d="M3 20l1.3 -3.9c-2.324 -3.437 -1.426 -7.872 2.1 -10.374c3.526 -2.501 8.59 -2.296 11.845 .48c3.255 2.777 3.695 7.266 1.029 10.501c-2.666 3.235 -7.615 4.215 -11.574 2.293l-4.7 1"></path>
+                            </svg>
+                        </button>
+                        <button aria-label="Send a Message to This Friend">
+                            <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" fill="none" width="24" height="24" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke="currentColor">
+                                <path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z"></path>
+                                <path d="M3 7l9 6l9 -6"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Rafael Rice</h3>
+                    <img src="https://randomuser.me/api/portraits/men/23.jpg" alt="" height="128" width="128">
+                    <button aria-label="Remove from Favorites" class="fav star">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"stroke-linecap="round" stroke-linejoin="round" width="24" height="24" stroke-width="2">
+                            <path d="M17.286 21.09q -1.69 .001 -5.288 -2.615q -3.596 2.617 -5.288 2.616q -2.726 0 -.495 -6.8q -9.389 -6.775 2.135 -6.775h.076q 1.785 -5.516 3.574 -5.516q 1.785 0 3.574 5.516h.076q 11.525 0 2.133 6.774q 2.23 6.802 -.497 6.8"></path>
+                        </svg>
+                    </button>
+                    <p>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" width="24" height="24" stroke-width="2">
+                            <path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path>
+                            <path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z"></path>
+                        </svg>
+                        Mississippi, USA
+                    </p>
+                    <div>
+                        <button aria-label="Start a Chat with This Friend">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" width="24" height="24" stroke-width="2">
+                                <path d="M3 20l1.3 -3.9c-2.324 -3.437 -1.426 -7.872 2.1 -10.374c3.526 -2.501 8.59 -2.296 11.845 .48c3.255 2.777 3.695 7.266 1.029 10.501c-2.666 3.235 -7.615 4.215 -11.574 2.293l-4.7 1"></path>
+                            </svg>
+                        </button>
+                        <button aria-label="Send a Message to This Friend">
+                            <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" fill="none" width="24" height="24" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke="currentColor">
+                                <path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z"></path>
+                                <path d="M3 7l9 6l9 -6"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Melanie Alexander</h3>
+                    <img src="https://randomuser.me/api/portraits/women/94.jpg" alt="" height="128" width="128">
+                    <button aria-label="Add from Favorites" class="star">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"stroke-linecap="round" stroke-linejoin="round" width="24" height="24" stroke-width="2">
+                            <path d="M17.286 21.09q -1.69 .001 -5.288 -2.615q -3.596 2.617 -5.288 2.616q -2.726 0 -.495 -6.8q -9.389 -6.775 2.135 -6.775h.076q 1.785 -5.516 3.574 -5.516q 1.785 0 3.574 5.516h.076q 11.525 0 2.133 6.774q 2.23 6.802 -.497 6.8"></path>
+                        </svg>
+                    </button>
+                    <p>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" width="24" height="24" stroke-width="2">
+                            <path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path>
+                            <path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z"></path>
+                        </svg>
+                        North Carolina, USA
+                    </p>
+                    <div>
+                        <button aria-label="Start a Chat with This Friend">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" width="24" height="24" stroke-width="2">
+                                <path d="M3 20l1.3 -3.9c-2.324 -3.437 -1.426 -7.872 2.1 -10.374c3.526 -2.501 8.59 -2.296 11.845 .48c3.255 2.777 3.695 7.266 1.029 10.501c-2.666 3.235 -7.615 4.215 -11.574 2.293l-4.7 1"></path>
+                            </svg>
+                        </button>
+                        <button aria-label="Send a Message to This Friend">
+                            <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" fill="none" width="24" height="24" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke="currentColor">
+                                <path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z"></path>
+                                <path d="M3 7l9 6l9 -6"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Ted Simmons</h3>
+                    <img src="https://randomuser.me/api/portraits/men/21.jpg" alt="" height="128" width="128">
+                    <button aria-label="Add from Favorites" class="star">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"stroke-linecap="round" stroke-linejoin="round" width="24" height="24" stroke-width="2">
+                            <path d="M17.286 21.09q -1.69 .001 -5.288 -2.615q -3.596 2.617 -5.288 2.616q -2.726 0 -.495 -6.8q -9.389 -6.775 2.135 -6.775h.076q 1.785 -5.516 3.574 -5.516q 1.785 0 3.574 5.516h.076q 11.525 0 2.133 6.774q 2.23 6.802 -.497 6.8"></path>
+                        </svg>
+                    </button>
+                    <p>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" width="24" height="24" stroke-width="2">
+                            <path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path>
+                            <path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z"></path>
+                        </svg>
+                        Washington, USA
+                    </p>
+                    <div>
+                        <button aria-label="Start a Chat with This Friend">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" width="24" height="24" stroke-width="2">
+                                <path d="M3 20l1.3 -3.9c-2.324 -3.437 -1.426 -7.872 2.1 -10.374c3.526 -2.501 8.59 -2.296 11.845 .48c3.255 2.777 3.695 7.266 1.029 10.501c-2.666 3.235 -7.615 4.215 -11.574 2.293l-4.7 1"></path>
+                            </svg>
+                        </button>
+                        <button aria-label="Send a Message to This Friend">
+                            <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" fill="none" width="24" height="24" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke="currentColor">
+                                <path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z"></path>
+                                <path d="M3 7l9 6l9 -6"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </section>
+            </section>
+
+            <section id="photos">
+                <h2>Photo Gallery</h2>
+                <!-- Images from Unsplash, Credits at end of body tag -->
+                <img src="images/bubbles.jpg" alt="">
+                <img src="images/sunflowers.jpg" alt="">
+                <img src="images/fireworks.jpg" alt="">
+                <img src="images/sprinkler.jpg" alt="">
+                <img src="images/park.jpg" alt="">
+                <img src="images/ferris-wheel.jpg" alt="">
+            </section>
+        </main>
+
+        <footer>
+            <p>Copyright &copy; <span>2024</span> - Jessica Barnett</p>
+        </footer>
+
+        <!-- Back to Top of Page Link -->
+        <a href="#top" id="btt" aria-label="Back to Top of Page">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" width="24" height="24" stroke-width="2">
+                <path d="M16 12l-4 -4l-4 4"></path>
+                <path d="M12 16v-8"></path>
+                <path d="M3 3m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v14a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z"></path>
+            </svg>
+        </a>
+
+        <!-- 
+            Image Credits from unsplash:
+
+            - Sprinkler: Photo by <a href="https://unsplash.com/@phammi?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">MI PHAM</a> on <a href="https://unsplash.com/photos/a-young-boy-running-through-a-sprinkle-of-water-FtZL0r4DZYk?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
+
+            - Sunflowers: Photo by <a href="https://unsplash.com/@_visalliart?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Antonino Visalli</a> on <a href="https://unsplash.com/photos/woman-in-white-and-black-striped-shirt-standing-on-yellow-sunflower-field-during-daytime-RNiBLy7aHck?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
+
+            - Park: Photo by <a href="https://unsplash.com/@shreygupta?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Shrey Gupta</a> on <a href="https://unsplash.com/photos/people-standing-near-pacific-park-ark-h6er2IIb1f0?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
+
+            - Bubbles: Photo by <a href="https://unsplash.com/@a2_foto?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Alex Alvarez</a> on <a href="https://unsplash.com/photos/woman-standing-outdoor-surrounded-by-bobbles-during-daytime-63YVMrL2d6g?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
+
+            - Ferris Wheel: Photo by <a href="https://unsplash.com/@bruceb_uk?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Bruce Barrow</a> on <a href="https://unsplash.com/photos/a-large-ferris-wheel-sitting-on-top-of-a-field-xvz5nT6kTZo?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
+
+            - Fireworks: Photo by <a href="https://unsplash.com/@metalpsychologist?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Sean Nufer</a> on <a href="https://unsplash.com/photos/a-fireworks-display-in-front-of-a-castle-E2a_e2fQMaU?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
+        -->
+    </body>
+</html>
