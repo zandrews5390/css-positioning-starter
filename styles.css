@@ -70,8 +70,7 @@ table {
 
 /* BODY STYLES */
 body{
-    /* TO DO: In order to position some of our other elements on the page we will need to position the body first. Setting the position on an element to relative and not changing any other styles allows this without actually changing the position of the body */
-    
+    position: relative;
     font-family: var(--body-fonts);
     color: var(--dk-gray);
     box-sizing: border-box;
@@ -236,8 +235,9 @@ p{
 #notifications span{
     display: block;
     font-size: 1.1rem;
-    /* TO DO: This span is a red dot that indicates that the user has a notification (an unread message) we need to position it so that it displays 45 pixels above and 30 pixels to the left of its normal position on the page */
-    
+    position: relative;
+    top: -45px;
+    left: 30px;
     font-weight: 600;
     background-color: var(--red);
     height: 1rem;
@@ -284,8 +284,9 @@ main > section{
     border: none;
     height: 40px;
     width: 40px;
-    /* TO DO: These stars show whether a friend is on the user's list of favorites. We want to position it so that it displays 25 pixels above and 175 pixels to the left of its normal position on the page */
-    
+    position: relative;
+    top: -25px;
+    left: 175px;
     border: 1px solid var(--lt-gray);
 }
 
@@ -384,8 +385,9 @@ main > section{
 #btt{
     width: 44px;
     height: 44px;
-    /* TO DO: A link back to the top of a longer page is commonly included near the lower right-hand corner of the page and it will stay in that location as the screen width changes. Use the calc function to move this element down by 100% of the viewport height minus 85 pixels, and to the right by 100% of the viewport width minus 100 pixels */
-    
+    position: fixed;
+    top: calc(100vh - 85px);
+    left: calc(100vw - 100px);
     background-color: var(--off-wht);
     border-radius: 1rem;
 }
